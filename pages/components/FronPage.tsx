@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import frontimg from "../../public/fronpage.jpg";
 import { useState } from "react";
-import Link from "next/link";
 
 export const FrontPage = () => {
   const [keyWord, setKeyWord] = useState("");
@@ -21,9 +20,6 @@ export const FrontPage = () => {
           value={keyWord}
         />
         <SButton onClick={onClick}>検索</SButton>
-        <Link href="/api/SentoPage.tsx">
-          <a>テスト</a>
-        </Link>
       </SFront2>
     </SFront>
   );
@@ -56,7 +52,7 @@ const SText = styled.input`
 
 const SButton = styled.button`
   width: 80px;
-  height: 48px;
+  height: 46px;
   border-radius: 9999px;
   border: none;
   font-size: 15px;

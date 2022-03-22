@@ -1,9 +1,8 @@
 import type { NextPage } from "next";
-import { Header } from "./apl/header";
-import { MenuBar } from "./apl/MenuBar";
-import { FrontPage } from "./apl/FronPage";
-import { Footer } from "./apl/footer";
-import { SentoPage } from "./apl/SentoPage";
+import { Header } from "./components/header";
+import { MenuBar } from "./components/MenuBar";
+import { FrontPage } from "./components/FronPage";
+import { Footer } from "./components/footer";
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +11,6 @@ const Home: NextPage = () => {
       <MenuBar />
       <FrontPage />
       <Footer />
-      {/* <SentoPage /> */}
     </>
   );
 };

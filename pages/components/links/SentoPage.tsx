@@ -1,9 +1,22 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { Header } from "../header";
+import { MenuBar } from "../MenuBar";
+import { Sento } from "../../types/Sento";
+import SentoPageData from "../../../SentoPageData.json";
+import { type } from "os";
 
+// type Props = {
+//   data: Sento;
+// };
+
+// export default function SentoPage(props: Props) {
+//   const { data } = props;
 export const SentoPage = () => {
   return (
     <>
+      <Header />
+      <MenuBar />
       <Sdiv>
         <dl>
           <Sdt>銭湯名：</Sdt>
@@ -37,3 +50,5 @@ const Sdt = styled.dt`
 const Sdd = styled.dd`
   margin-left: 80px;
 `;
+
+export default SentoPage;
