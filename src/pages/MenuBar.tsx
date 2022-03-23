@@ -6,19 +6,19 @@ export const MenuBar = () => {
     <>
       <h4>
         <SMenu>
-          <Link href="/components/links/SentoPage">
+          <Link href="/links/SentoPage">
             <Sp>銭　湯</Sp>
           </Link>
-          <Link href="/components/links/SaunaPage">
+          <Link href="/links/SaunaPage">
             <Sp>サウナ</Sp>
           </Link>
-          <Link href="/components/links/SuperSentoPage">
+          <Link href="/links/SuperSentoPage">
             <Sp> スーパー銭湯</Sp>
           </Link>
-          <Link href="/components/links/NearSentoPage">
+          <Link href="/links/NearSentoPage">
             <Sp>近くの銭湯</Sp>
           </Link>
-          <Link href="/components/links/GuidePage">
+          <Link href="/links/GuidePage">
             <Sp>ガイド</Sp>
           </Link>
         </SMenu>
@@ -41,4 +41,5 @@ const SMenu = styled.li`
   justify-content: space-evenly;
   border-bottom: solid 1px black;
   padding-bottom: 6px;
+  font-size: 18px;
 `;

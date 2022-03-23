@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { Header } from "./components/header";
-import { MenuBar } from "./components/MenuBar";
-import { FrontPage } from "./components/FronPage";
-import { Footer } from "./components/footer";
+import { Header } from "./Header";
+import { MenuBar } from "./MenuBar";
+import { FrontPage } from "./FronPage";
+import { Footer } from "./Footer";
 
 const Home: NextPage = () => {
   return (
