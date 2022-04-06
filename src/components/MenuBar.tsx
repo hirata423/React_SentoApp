@@ -1,29 +1,15 @@
 import Link from "next/link";
-import { Box, Flex, Heading, useDisclosure } from "@chakra-ui/react";
-import { MenuDrawer } from "./MenuDrawer";
-import MenuIconButton from "./MenuIconButton";
+import { Flex } from "@chakra-ui/react";
+import SubtitleList from "../../SubtitleList.json";
+
+type SubTitle = {
+  id: number;
+  href: string;
+  name: string;
+};
 
 export const MenuBar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const subtitle = ["銭 湯", "サウナ", "スーパー銭湯", "近くの銭湯", "ガイド"];
-  const subTitleList = subtitle.map((item) => {
-    return (
-      <>
-        <Heading
-          size="sm"
-          p={7}
-          _hover={{
-            cursor: "pointer",
-            color: "blue",
-            textDecoration: "underLine",
-          }}
-        >
-          {item}
-        </Heading>
-      </>
-    );
-  });
-
+  const subtitle: SubTitle[] = SubtitleList;
   return (
     <>
       <Flex as="nav" borderBottom={"solid 1px black "}>
@@ -32,16 +18,18 @@ export const MenuBar = () => {
           align="center"
           justifyContent="space-evenly"
           display={{ base: "none", md: "flex" }}
+          p="3px"
+          m="20px"
         >
-          <Link href="/links/SentoPage">{subTitleList[0]}</Link>
-          <Link href="/links/SaunaPage">{subTitleList[1]}</Link>
-          <Link href="/links/SuperSentoPage">{subTitleList[2]}</Link>
-          <Link href="/links/NearSentoPage">{subTitleList[3]}</Link>
-          <Link href="/links/GuidePage">{subTitleList[4]}</Link>
+          {subtitle.map((item: SubTitle) => (
+            <Flex key={item.id} _hover={{ color: "blue" }}>
+              <Link href={item.href}>
+                <a>{item.name}</a>
+              </Link>
+            </Flex>
+          ))}
         </Flex>
-        <MenuIconButton onOpen={onOpen} />
       </Flex>
-      <MenuDrawer isOpen={isOpen} onClose={onClose} />
     </>
   );
 };

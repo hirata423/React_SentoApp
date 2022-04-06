@@ -4,6 +4,7 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { Sento } from "../../types/Sento";
 import SentoData from "../../../SentoPageData.json";
+import { Box, Text } from "@chakra-ui/react";
 
 export const SaunaPage = () => {
   const sentoData: Sento[] = SentoData;
@@ -32,6 +33,11 @@ export const SaunaPage = () => {
   return (
     <>
       <Header />
+      <Box m="10px">
+        <Text fontSize="3xl" color="gray.700">
+          サウナ一覧
+        </Text>
+      </Box>
       <SCard>{SentoPageData}</SCard>
       <Link href="/">
         <Sp>ホームへ戻る</Sp>

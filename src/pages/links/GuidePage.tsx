@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { Box, Text } from "@chakra-ui/react";
 import styled from "styled-components";
 import { Header } from "../../components/Header";
-import { MenuBar } from "../../components/MenuBar";
 import { Footer } from "../../components/Footer";
 import { Sento } from "../../types/Sento";
 import SentoData from "../../../SentoPageData.json";
@@ -32,6 +32,11 @@ export const GuidePage = () => {
   return (
     <>
       <Header />
+      <Box m="10px">
+        <Text fontSize="3xl" color="gray.700">
+          ガイド
+        </Text>
+      </Box>
       <SCard>{sebtoDataList}</SCard>
       <Link href="/">
         <Sp>ホームへ戻る</Sp>

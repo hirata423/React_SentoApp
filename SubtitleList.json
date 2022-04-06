@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "href": "/links/SentoPage",
+    "name": "銭湯",
+    "onClick": "onClickSentoPage"
+  },
+  {
+    "id": 2,
+    "href": "/links/SaunaPage",
+    "name": "サウナ",
+    "onClick": "onClickSaunaPage"
+  },
+  {
+    "id": 3,
+    "href": "/links/SuperSentoPage",
+    "name": "スーパー銭湯",
+    "onClick": "onClickSuperSentoPage"
+  },
+  {
+    "id": 4,
+    "href": "/links/NearSentoPage",
+    "name": "近くの銭湯",
+    "onClick": "onClickNearSentoPage"
+  },
+  {
+    "id": 5,
+    "href": "/links/GuidePage",
+    "name": "ガイド",
+    "onClick": "onClickNearGuidePage"
+  }
+]

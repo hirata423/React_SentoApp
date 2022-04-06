@@ -1,37 +1,162 @@
 [
   {
     "id": 1,
-    "imageUrl": "./src/public/hirata.jpg",
+    "imageUrl": "/hirata.jpg",
     "name": "平田湯",
     "address": "小松川",
-    "cost": 500
+    "cost": 500,
+    "flag": false
   },
   {
     "id": 2,
-    "imageUrl": "./src/public/haruta.jpg",
+    "imageUrl": "/haruta.jpg",
     "name": "春田湯",
     "address": "鎌取",
-    "cost": 300
+    "cost": 300,
+    "flag": false
   },
   {
     "id": 3,
-    "imageUrl": "./src/public/shimizu.jpg",
+    "imageUrl": "/shimizu.jpg",
     "name": "清水湯",
     "address": "松戸",
-    "cost": 400
+    "cost": 400,
+    "flag": false
   },
   {
     "id": 4,
-    "imageUrl": "./src/public/sakamoto.ani.jpg",
+    "imageUrl": "/sakamoto.ani.jpg",
     "name": "坂本(兄)湯",
     "address": "浦安",
-    "cost": 650
+    "cost": 650,
+    "flag": false
   },
   {
     "id": 5,
-    "imageUrl": "./src/public/sakamoto.otouto.jpg",
+    "imageUrl": "/sakamoto.otouto.jpg",
     "name": "坂本(弟)湯",
     "address": "袖ヶ浦",
-    "cost": 600
+    "cost": 600,
+    "flag": false
+  },
+  {
+    "id": 6,
+    "imageUrl": "/hirata.jpg",
+    "name": "東京湯",
+    "address": "錦糸町",
+    "cost": 500,
+    "flag": false
+  },
+  {
+    "id": 7,
+    "imageUrl": "/haruta.jpg",
+    "name": "千葉湯",
+    "address": "成田",
+    "cost": 700,
+    "flag": false
+  },
+  {
+    "id": 8,
+    "imageUrl": "/shimizu.jpg",
+    "name": "埼玉湯",
+    "address": "さいたま",
+    "cost": 800,
+    "flag": false
+  },
+  {
+    "id": 9,
+    "imageUrl": "/sakamoto.ani.jpg",
+    "name": "湘南湯",
+    "address": "神奈川",
+    "cost": 850,
+    "flag": false
+  },
+  {
+    "id": 10,
+    "imageUrl": "/sakamoto.otouto.jpg",
+    "name": "横浜湯",
+    "address": "神奈川",
+    "cost": 1000,
+    "flag": false
+  },
+  {
+    "id": 11,
+    "imageUrl": "/hirata.jpg",
+    "name": "平田湯",
+    "address": "小松川",
+    "cost": 500,
+    "flag": false
+  },
+  {
+    "id": 12,
+    "imageUrl": "/haruta.jpg",
+    "name": "春田湯",
+    "address": "鎌取",
+    "cost": 300,
+    "flag": false
+  },
+  {
+    "id": 13,
+    "imageUrl": "/shimizu.jpg",
+    "name": "清水湯",
+    "address": "松戸",
+    "cost": 400,
+    "flag": false
+  },
+  {
+    "id": 14,
+    "imageUrl": "/sakamoto.ani.jpg",
+    "name": "坂本(兄)湯",
+    "address": "浦安",
+    "cost": 650,
+    "flag": false
+  },
+  {
+    "id": 15,
+    "imageUrl": "/sakamoto.otouto.jpg",
+    "name": "坂本(弟)湯",
+    "address": "袖ヶ浦",
+    "cost": 600,
+    "flag": false
+  },
+  {
+    "id": 16,
+    "imageUrl": "/hirata.jpg",
+    "name": "東京湯",
+    "address": "錦糸町",
+    "cost": 500,
+    "flag": false
+  },
+  {
+    "id": 17,
+    "imageUrl": "/haruta.jpg",
+    "name": "千葉湯",
+    "address": "成田",
+    "cost": 700,
+    "flag": false
+  },
+  {
+    "id": 18,
+    "imageUrl": "/shimizu.jpg",
+    "name": "埼玉湯",
+    "address": "さいたま",
+    "cost": 800,
+    "flag": false
+  },
+  {
+    "id": 19,
+    "imageUrl": "/sakamoto.ani.jpg",
+    "name": "湘南湯",
+    "address": "神奈川",
+    "cost": 850,
+    "flag": false
+  },
+  {
+    "id": 20,
+    "imageUrl": "/sakamoto.otouto.jpg",
+    "name": "横浜湯",
+    "address": "神奈川",
+    "cost": 1000,
+    "flag": false
   }
 ]
