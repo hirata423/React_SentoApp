@@ -1,15 +1,13 @@
 import type { NextPage } from "next";
-import { Header } from "./Header";
-import { MenuBar } from "./MenuBar";
-import { FrontPage } from "./FronPage";
-import { Footer } from "./Footer";
+import { Header } from "../components/Header";
+import { Front } from "../components/Front";
+import { Footer } from "../components/Footer";
 
 const Home: NextPage = () => {
   return (
     <>
       <Header />
-      <MenuBar />
-      <FrontPage />
+      <Front />
       <Footer />
     </>
   );

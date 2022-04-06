@@ -1,8 +1,8 @@
-import Link from "next/link";
-import styled from "styled-components";
-import { Header } from "../Header";
-import { MenuBar } from "../MenuBar";
-import { Footer } from "../Footer";
+import { Link, Wrap, WrapItem } from "@chakra-ui/react";
+
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
+import { SentoPageData } from "./SentoPageData";
 import { Sento } from "../../types/Sento";
 import SentoData from "../../../SentoPageData.json";
 
@@ -11,60 +11,42 @@ export const SentoPage = () => {
   const sentoDataList = sentoData.map((item: Sento) => {
     return (
       <>
-        <Sdiv>
-          <dl>
-            <Sdt>銭湯名：</Sdt>
-            <Sdd>{item.name}</Sdd>
-            <br />
-            <Sdt>住　所：</Sdt>
-            <Sdd>{item.address}</Sdd>
-            <br />
-            <Sdt>料　金：</Sdt>
-            <Sdd>
-              {item.cost}
-              {"円"}
-            </Sdd>
-          </dl>
-        </Sdiv>
+        <SentoPageData
+          id={item.id}
+          name={item.name}
+          address={item.address}
+          cost={item.cost}
+        />
       </>
     );
   });
   return (
     <>
       <Header />
-      <MenuBar />
-      <div>{sentoDataList}</div>
-      <Link href="/">
-        <Sp>ホームへ戻る</Sp>
+      <Wrap justify="center">
+        <WrapItem>{sentoDataList[0]}</WrapItem>
+        <WrapItem>{sentoDataList[1]}</WrapItem>
+        <WrapItem>{sentoDataList[2]}</WrapItem>
+        <WrapItem>{sentoDataList[3]}</WrapItem>
+        <WrapItem>{sentoDataList[4]}</WrapItem>
+        <WrapItem>{sentoDataList[0]}</WrapItem>
+        <WrapItem>{sentoDataList[1]}</WrapItem>
+        <WrapItem>{sentoDataList[2]}</WrapItem>
+        <WrapItem>{sentoDataList[3]}</WrapItem>
+        <WrapItem>{sentoDataList[4]}</WrapItem>
+      </Wrap>
+      <Link
+        href="/"
+        _hover={{
+          color: "blue",
+          textDecoration: "underLine",
+        }}
+      >
+        ホームへ戻る
       </Link>
       <Footer />
     </>
   );
 };
-
-const Sdiv = styled.div`
-  border: solid gray 1px;
-  border-radius: 10px;
-  width: 40vh;
-  background-color: green;
-  padding: 8px;
-  margin: 6px;
-`;
-
-const Sdt = styled.dt`
-  float: left;
-`;
-
-const Sdd = styled.dd`
-  margin-left: 80px;
-`;
-
-const Sp = styled.p`
-  &:hover {
-    cursor: pointer;
-    text-decoration: underline;
-    color: blue;
-  }
-`;
 
 export default SentoPage;

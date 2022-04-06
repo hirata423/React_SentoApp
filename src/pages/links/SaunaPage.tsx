@@ -1,8 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { Header } from "../Header";
-import { MenuBar } from "../MenuBar";
-import { Footer } from "../Footer";
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
 import { Sento } from "../../types/Sento";
 import SentoData from "../../../SentoPageData.json";
 
@@ -33,8 +32,7 @@ export const SaunaPage = () => {
   return (
     <>
       <Header />
-      <MenuBar />
-      <div>{SentoPageData}</div>
+      <SCard>{SentoPageData}</SCard>
       <Link href="/">
         <Sp>ホームへ戻る</Sp>
       </Link>
@@ -66,6 +64,9 @@ const Sp = styled.p`
     text-decoration: underline;
     color: blue;
   }
+`;
+const SCard = styled.div`
+  display: flex;
 `;
 
 export default SaunaPage;
