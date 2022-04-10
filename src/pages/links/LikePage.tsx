@@ -3,10 +3,21 @@ import { Box, Flex, Link, Text, Wrap, WrapItem } from "@chakra-ui/react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Sento } from "../../types/Sento";
-import SentoPageData from "../../components/SentoTag";
+import SentoTag from "../../components/SentoTag";
+import SentoData from "../../../SentoPageData.json";
+import { useSentoData } from "../../hooks/useSentoData";
 
-export const StarData = () => {
-  const test = [];
+export const LikePage = () => {
+  const sentoData: Sento[] = SentoData;
+  const { checkData } = useSentoData();
+
+  const res = sentoData.filter((data: Sento) => data.flag);
+  //Jsonデータ内のflagがtrueなら表示される
+  //SentoTagコンポーネントでJsonデータの各flagを⭐️クリックされるとtrueに
+  //変わるようにし、LikePageでfilterにかけて表示したい
+
+  console.log(res);
+  console.log(checkData);
 
   return (
     <>
@@ -21,19 +32,22 @@ export const StarData = () => {
         <Box>{""}</Box>
         <Box>{""}</Box>
       </Flex>
-      <Wrap justify="center">
-        {test.map((item: Sento) => (
-          <WrapItem key={item.id}>
-            <SentoPageData
-              imageUrl={item.imageUrl}
-              name={item.name}
-              address={item.address}
-              cost={item.cost}
-              flag={item.flag}
-            />
-          </WrapItem>
-        ))}
-      </Wrap>
+      {checkData && (
+        <Wrap justify="center">
+          {res.map((item: Sento) => (
+            <WrapItem key={item.id}>
+              <SentoTag
+                imageUrl={item.imageUrl}
+                name={item.name}
+                address={item.address}
+                cost={item.cost}
+                flag={item.flag}
+              />
+            </WrapItem>
+          ))}
+        </Wrap>
+      )}
+
       <Link
         href="/"
         _hover={{
@@ -48,4 +62,4 @@ export const StarData = () => {
   );
 };
 
-export default StarData;
+export default LikePage;

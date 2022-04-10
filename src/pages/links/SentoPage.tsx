@@ -17,6 +17,7 @@ import { Sento } from "../../types/Sento";
 import SentoData from "../../../SentoPageData.json";
 // import LikeButton from "../../components/LikeButton";
 import { useRouter } from "next/router";
+import { useSentoData } from "../../hooks/useSentoData";
 
 export const SentoPage = () => {
   const router = useRouter();
@@ -26,12 +27,12 @@ export const SentoPage = () => {
 
   const onClickSoat = () => {
     setKeyWord("");
-  }; //クリックで絞り込み
+  };
   const sentoData: Sento[] = SentoData;
   const res = sentoData.filter((data: Sento) => {
-    return new RegExp(keyWord).test(data.name); //cost(number)等も入れたい
+    const word = data.name + data.address + data.cost;
+    return new RegExp(keyWord).test(word); //cost(number)等も入れたい、
   });
-  console.log(res);
 
   const onClickStarIcon = useCallback(
     () => router.push("/links/LikePage"),
@@ -91,14 +92,13 @@ export const SentoPage = () => {
         </Box>
       </Flex>
       <Wrap justify="center">
-        {res.map((item: Sento, index) => (
+        {res.map((item: Sento) => (
           <WrapItem key={item.id}>
             <SentoTag
               imageUrl={item.imageUrl}
               name={item.name}
               address={item.address}
               cost={item.cost}
-              flag={item.flag}
               // changeColor={changeColor}
               // onClickStar={() => onClickStar()}
             />

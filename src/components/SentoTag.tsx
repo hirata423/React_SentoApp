@@ -1,18 +1,29 @@
 import { CheckCircleIcon, StarIcon } from "@chakra-ui/icons";
 import { Badge, Box, HStack, Image, useToast } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSentoData } from "../hooks/useSentoData";
+import { Sento } from "../types/Sento";
+import SentoData from "../../SentoPageData.json";
+import { text } from "stream/consumers";
 
 export const SentoTag = (props) => {
-  const { id, name, address, cost, imageUrl, flag } = props;
+  const { id, name, address, cost, imageUrl } = props;
   const toast = useToast();
+  const sentoData: Sento[] = SentoData;
 
+  const { setCheckData } = useSentoData();
   const [changeColor, setChangeColor] = useState("gray.400");
   const [like, setLike] = useState(false);
 
-  const onClickStar = () => {
+  const onClickStar = (index) => {
     if (changeColor) {
       setChangeColor("yellow.400");
       setLike(true);
+      setCheckData(true);
+
+      //⭐️クリックでJsonデータ内のflagがfalseからtrueに変わるようにしたい
+      //sentoDataをグローバルステートにflagの値だけ変更できないでしょうか
+      //クリックした⭐️を含むオブジェクトが配列の何番目か特定して更新しなければならなそうです
       if (!like) {
         toast({
           position: "bottom-left",
@@ -26,9 +37,6 @@ export const SentoTag = (props) => {
       }
     }
 
-    //booleanの型を定義、jsonをimportする、mapで
-
-    console.log(like);
     if (changeColor === "yellow.400") {
       setChangeColor("gray.400");
       setLike(false);
@@ -66,11 +74,7 @@ export const SentoTag = (props) => {
               <Badge borderRadius="full" px="2" colorScheme="teal">
                 New
               </Badge>
-              <StarIcon
-                color={changeColor}
-                onClick={onClickStar}
-                focusable={flag}
-              />
+              <StarIcon color={changeColor} onClick={onClickStar} />
             </HStack>
             <Box color="gray.500" fontSize="xs" ml="2"></Box>
           </Box>
