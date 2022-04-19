@@ -1,29 +1,47 @@
 import { CheckCircleIcon, StarIcon } from "@chakra-ui/icons";
 import { Badge, Box, HStack, Image, useToast } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSentoData } from "../hooks/useSentoData";
-import { Sento } from "../types/Sento";
-import SentoData from "../../SentoPageData.json";
-import { text } from "stream/consumers";
 
 export const SentoTag = (props) => {
-  const { id, name, address, cost, imageUrl } = props;
+  const { id, name, address, cost, imageUrl, flag } = props;
   const toast = useToast();
-  const sentoData: Sento[] = SentoData;
 
-  const { setCheckData } = useSentoData();
+  const { setSentoList } = useSentoData();
   const [changeColor, setChangeColor] = useState("gray.400");
   const [like, setLike] = useState(false);
 
-  const onClickStar = (index) => {
+  const changeFlag = (prevList) => {
+    //①:の場合
+    // const targetId = prevList.findIndex((item: Sento) => {
+    //   return item.id === id;
+    // });
+    const targetItem = {
+      id,
+      name,
+      address,
+      cost,
+      imageUrl,
+      flag: !flag,
+    };
+    console.log(targetItem);
+    //①:prevList.solice(targetId,1,targetItem)
+    const foo = prevList.map((item) => {
+      if (item.id === id) {
+        return targetItem;
+      }
+      return item;
+    });
+    return foo;
+  };
+
+  const onClickStar = () => {
     if (changeColor) {
       setChangeColor("yellow.400");
       setLike(true);
-      setCheckData(true);
-
-      //⭐️クリックでJsonデータ内のflagがfalseからtrueに変わるようにしたい
-      //sentoDataをグローバルステートにflagの値だけ変更できないでしょうか
-      //クリックした⭐️を含むオブジェクトが配列の何番目か特定して更新しなければならなそうです
+      setSentoList((prevList) => [...changeFlag(prevList)]);
+      // setSentoList((prevList) => [...changeFlag(prevList,id)]);
+      //=> Expected 1 arguments, but got 2.ts のエラー
       if (!like) {
         toast({
           position: "bottom-left",
@@ -60,11 +78,13 @@ export const SentoTag = (props) => {
         w="265px"
         h="280"
         p="2px"
-        mx={2}
+        mx={6}
+        my={5}
         mt="20px"
         borderWidth="1px"
         borderRadius="10px"
         shadow="md"
+        backgroundColor="white"
         key={id}
       >
         <Image src={imageUrl} alt="サンプル" />
@@ -74,7 +94,11 @@ export const SentoTag = (props) => {
               <Badge borderRadius="full" px="2" colorScheme="teal">
                 New
               </Badge>
-              <StarIcon color={changeColor} onClick={onClickStar} />
+              <StarIcon
+                color={flag ? "yellow.400" : changeColor}
+                // color={changeColor}
+                onClick={onClickStar}
+              />
             </HStack>
             <Box color="gray.500" fontSize="xs" ml="2"></Box>
           </Box>

@@ -19,6 +19,8 @@ export const Header = () => {
           as="h1"
           pt={3}
           pb={1}
+          ml={3}
+          my={4}
           fontSize={{ base: "sm", sm: "xl", md: "2xl", lg: "3xl" }}
           flexGrow={2}
           onClick={onclickHome}
